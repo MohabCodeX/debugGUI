@@ -138,5 +138,5 @@ If the Debug GUI is not working as expected:
 
 1. Ensure you have admin privileges if admin access is required
 2. Check if debug commands are enabled with `/dtoggle`
-3. Try restarting the debuggui2 resource
+3. Try restarting the debuggui resource
 4. Verify the resource is correctly installed in your server
