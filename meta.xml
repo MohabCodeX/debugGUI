@@ -1,0 +1,17 @@
+<meta>
+	<info author="MohabCodeX" />
+	<info name="Debug GUI" version="1.0.0" description="A customizable debug GUI Panel" />
+	<script src="settings.lua" type="shared" />
+	<script src="c_debugGUI.lua" type="client" cache="false" />
+	<script src="s_debugGUI.lua" type="server" />
+	<script src="commands.lua" type="server" />
+
+	<export function="clientDebugOutput" type="client" />
+	<export function="exportDebugOutput" type="server" />
+	<export function="getDebugLevels" type="shared" />
+	<export function="getDebugSounds" type="shared" />
+	<export function="getDebugSettings" type="shared" />
+	<export function="updateDebugSetting" type="shared" />
+
+	<file src="savedMessages.xml" type="server" />
+</meta>
