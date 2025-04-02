@@ -1,6 +1,5 @@
 <meta>
-	<info author="MohabCodeX" />
-	<info name="Debug GUI" version="1.0.0" description="A customizable debug GUI Panel" />
+	<info author="MohabCodeX" type="misc" version="1.0.0" name="Debug GUI" description="A customizable debug GUI Panel" />
 	<script src="settings.lua" type="shared" />
 	<script src="c_debugGUI.lua" type="client" cache="false" />
 	<script src="s_debugGUI.lua" type="server" />
