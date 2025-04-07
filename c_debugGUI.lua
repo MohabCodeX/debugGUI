@@ -1069,6 +1069,8 @@ function updateDebugGridList(searchText)
 
     guiGridListClear(debugGrid)
 
+    local longestTextLength = 0 -- Track the longest text length
+
     for _, msg in ipairs(debugMessages) do
         local debugLevel = DEBUG_LEVELS[msg.level].level
 
@@ -1078,6 +1080,9 @@ function updateDebugGridList(searchText)
             guiGridListSetItemText(debugGrid, row, 1, msg.time, false, false)
             guiGridListSetItemText(debugGrid, row, 2, msg.level, false, false)
             guiGridListSetItemText(debugGrid, row, 3, msg.displayMessage, false, false)
+
+            longestTextLength = math.max(longestTextLength, #msg.displayMessage)
+
             local r, g, b = hexToRGB(msg.color)
             for col = 1, 3 do
                 guiGridListSetItemColor(debugGrid, row, col, r * 255, g * 255, b * 255, 255)
@@ -1085,6 +1090,11 @@ function updateDebugGridList(searchText)
         end
     end
 
+    -- Dynamically adjust the third column width based on the longest text
+    local charWidth = 8 -- Approximate width of a character in pixels
+    local minWidth = 200 -- Minimum width for the message column
+    local newWidth = math.max(minWidth, math.min(longestTextLength * charWidth, panelWidth - 50))
+    guiGridListSetColumnWidth(debugGrid, 3, newWidth, false)
 
     setTimer(function()
         guiGridListSetVerticalScrollPosition(debugGrid, 100)
